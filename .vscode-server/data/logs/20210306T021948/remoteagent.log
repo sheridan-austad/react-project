@@ -1,0 +1,23 @@
+[2021-03-06 02:19:49.018] [remoteagent] [info] 
+
+*
+* Visual Studio Code Server
+*
+* Reminder: You may only use this software with Visual Studio family products,
+* as described in the license https://aka.ms/vscode-remote/license
+*
+
+
+[2021-03-06 02:19:49.018] [remoteagent] [info] Extension host agent started.
+[2021-03-06 02:19:49.388] [remoteagent] [info] [::ffff:172.17.123.225][de62f092][ManagementConnection] New connection established.
+[2021-03-06 02:19:49.398] [remoteagent] [info] [::ffff:172.17.123.225][7391fc71][ExtensionHostConnection] New connection established.
+[2021-03-06 02:19:54.224] [remoteagent] [info] [::ffff:172.17.123.225][7391fc71][ExtensionHostConnection] <15144> Launched Extension Host Process.
+[2021-03-06 02:20:14.850] [remoteagent] [info] [::ffff:172.17.123.225][7391fc71][ExtensionHostConnection] The client has reconnected.
+[2021-03-06 02:33:52.888] [remoteagent] [info] [::ffff:172.17.123.225][56d33d8c][ManagementConnection] New connection established.
+[2021-03-06 02:33:52.895] [remoteagent] [info] [::ffff:172.17.123.225][bb8e1cda][ExtensionHostConnection] New connection established.
+[2021-03-06 02:33:52.913] [remoteagent] [info] [::ffff:172.17.123.225][bb8e1cda][ExtensionHostConnection] <15285> Launched Extension Host Process.
+[2021-03-06 02:34:27.194] [remoteagent] [info] [::ffff:172.17.123.225][de62f092][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2021-03-06 02:34:28.283] [remoteagent] [info] [::ffff:172.17.123.225][7391fc71][ExtensionHostConnection] <15144> Extension Host Process exited with code: 0, signal: null.
+[2021-03-06 02:34:28.306] [remoteagent] [info] [::ffff:172.17.123.225][56d33d8c][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2021-03-06 02:34:29.367] [remoteagent] [info] [::ffff:172.17.123.225][bb8e1cda][ExtensionHostConnection] <15285> Extension Host Process exited with code: 0, signal: null.
+[2021-03-06 02:34:29.368] [remoteagent] [info] Last EH closed, waiting before shutting down

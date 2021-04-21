@@ -1,0 +1,25 @@
+[2021-02-28 19:02:33.343] [remoteagent] [info] 
+
+*
+* Visual Studio Code Server
+*
+* Reminder: You may only use this software with Visual Studio family products,
+* as described in the license https://aka.ms/vscode-remote/license
+*
+
+
+[2021-02-28 19:02:33.343] [remoteagent] [info] Extension host agent started.
+[2021-02-28 19:02:33.491] [remoteagent] [info] [::ffff:172.17.123.225][000cde50][ManagementConnection] New connection established.
+[2021-02-28 19:02:33.499] [remoteagent] [info] [::ffff:172.17.123.225][39feae0c][ExtensionHostConnection] New connection established.
+[2021-02-28 19:02:33.715] [remoteagent] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/sheridan95/Development/code/.vscode'
+[2021-02-28 19:02:38.626] [remoteagent] [info] [::ffff:172.17.123.225][39feae0c][ExtensionHostConnection] <4562> Launched Extension Host Process.
+[2021-02-28 19:02:59.640] [remoteagent] [info] [::ffff:172.17.123.225][39feae0c][ExtensionHostConnection] The client has reconnected.
+[2021-02-28 19:59:11.384] [remoteagent] [info] [::ffff:172.17.123.225][dc139741][ManagementConnection] New connection established.
+[2021-02-28 19:59:11.396] [remoteagent] [info] [::ffff:172.17.123.225][2f19aaa5][ExtensionHostConnection] New connection established.
+[2021-02-28 19:59:11.498] [remoteagent] [info] [::ffff:172.17.123.225][2f19aaa5][ExtensionHostConnection] <4776> Launched Extension Host Process.
+[2021-02-28 19:59:11.635] [remoteagent] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/sheridan95/Development/code/phase0/phase-0-completing-assignments/.vscode'
+[2021-02-28 20:11:34.682] [remoteagent] [info] [::ffff:172.17.123.225][000cde50][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2021-02-28 20:11:35.924] [remoteagent] [info] [::ffff:172.17.123.225][39feae0c][ExtensionHostConnection] <4562> Extension Host Process exited with code: 0, signal: null.
+[2021-02-28 20:11:37.978] [remoteagent] [info] [::ffff:172.17.123.225][dc139741][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2021-02-28 20:11:39.111] [remoteagent] [info] [::ffff:172.17.123.225][2f19aaa5][ExtensionHostConnection] <4776> Extension Host Process exited with code: 0, signal: null.
+[2021-02-28 20:11:39.112] [remoteagent] [info] Last EH closed, waiting before shutting down

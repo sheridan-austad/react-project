@@ -1,0 +1,29 @@
+[2021-03-02 18:42:38.911] [remoteagent] [info] 
+
+*
+* Visual Studio Code Server
+*
+* Reminder: You may only use this software with Visual Studio family products,
+* as described in the license https://aka.ms/vscode-remote/license
+*
+
+
+[2021-03-02 18:42:38.912] [remoteagent] [info] Extension host agent started.
+[2021-03-02 18:42:39.443] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] New connection established.
+[2021-03-02 18:42:39.457] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] New connection established.
+[2021-03-02 18:42:39.746] [remoteagent] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/sheridan95/Development/code/my_new_directory/.vscode'
+[2021-03-02 18:42:44.061] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] <3109> Launched Extension Host Process.
+[2021-03-02 18:43:05.025] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] The client has reconnected.
+[2021-03-02 23:45:19.410] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] The client has reconnected.
+[2021-03-02 23:45:19.420] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] The client has reconnected.
+[2021-03-02 23:45:43.677] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] The client has reconnected.
+[2021-03-02 23:45:43.690] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] The client has reconnected.
+[2021-03-02 23:47:01.266] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] The client has reconnected.
+[2021-03-02 23:47:01.289] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] The client has reconnected.
+[2021-03-03 05:00:48.765] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] The client has reconnected.
+[2021-03-03 05:00:48.812] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] The client has reconnected.
+[2021-03-03 10:01:05.562] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[2021-03-03 15:18:35.327] [remoteagent] [info] [::ffff:172.17.123.225][9eb18620][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+[2021-03-03 15:18:36.375] [remoteagent] [info] [::ffff:172.17.123.225][3a2147c4][ExtensionHostConnection] <3109> Extension Host Process exited with code: 0, signal: null.
+[2021-03-03 15:18:36.376] [remoteagent] [info] Last EH closed, waiting before shutting down
+[2021-03-03 20:19:08.259] [remoteagent] [info] Last EH closed, shutting down
