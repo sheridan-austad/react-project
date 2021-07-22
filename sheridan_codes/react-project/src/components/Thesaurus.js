@@ -5,10 +5,10 @@ class Thesaurus extends Component {
     constructor(){
         super()
         this.state = {
-            word: '',
-            synonyms: '',
-            antonyms: '',
-            examples: ''
+            def: '',
+            syns: '',
+            ants: '',
+            fl: ''
         }
     }
 
@@ -20,14 +20,14 @@ class Thesaurus extends Component {
         fetch(`https://dictionaryapi.com/api/v3/references/thesaurus/json/test?key=f5f794bc-a89d-4af7-8f68-182f398f3e91`)
         .then(res => res.json())
         .then(data => {
-            const wordObject = data[0]
+            const wordObj = data[0]
             this.setState({
-                word: wordObject.word,
-                synonyms: wordObject.synonyms,
-                antonyms: wordObject.antonyms,
-                examples: wordObject.examples
+                definition: wordObj.def,
+                synonyms: wordObj.syns,
+                antonyms: wordObj.ants,
+                partsOfSpeech: wordObj.fl
             })
-            this.props.changeWord(wordObject)
+            this.props.changeWord(wordObj)
         })
     }
 
@@ -35,9 +35,10 @@ class Thesaurus extends Component {
         return(
             <div>
                 <h1> Word Thesaurus {this.state.thesaurus}</h1>
-                <h3>Synonyms: {this.state.synonyms}</h3>
-                <h3>Antonyms: {this.state.antonyms}</h3>
-                <h3>Examples: {this.state.examples}</h3>
+                <h3>Definition: {this.state.def}</h3>
+                <h3>Synonyms: {this.state.syns}</h3>
+                <h3>Antonyms: {this.state.ants}</h3>
+                <h3>Part of Speech: {this.state.fl}</h3>
                 <button onClick={this.fetchWord}>Try a different word!</button>
             </div>
         )

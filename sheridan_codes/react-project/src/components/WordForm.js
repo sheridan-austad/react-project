@@ -5,10 +5,10 @@ class WordForm extends Component {
     constructor(){
         super()
         this.state = {
-            word: '',
-            synonyms: '',
-            antonyms: '',
-            examples: ''
+            id: '',
+            syns: '',
+            ants: '',
+            fl: ''
         }
     }
 
@@ -20,14 +20,28 @@ class WordForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('submitted')
+        fetch(`http://localhost:3001/thesaurus`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.state.id,
+                syns: this.state.syns,
+                ants: this.state.ants,
+                fl: this.state.fl
+            })
+        }).then(res => res.json())
+        .then(word => this.props.addWord(word))
     }
 
     changeWord = (wordObj) => {
         this.setState({
-            word: wordObj.word,
-            synonyms: wordObj.synonyms,
-            antonyms: wordObj.antonyms
+            id: wordObj.id,
+            syns: wordObj.syns,
+            ants: wordObj.ants,
+            fl: wordObj.fl
         })
     }
 
@@ -50,10 +64,10 @@ class WordForm extends Component {
     
     changeWord = (wordObj) => {
         this.setState({
-            word: wordObj.word,
-            synonyms: wordObj.synonyms,
-            antonyms: wordObj.antonyms,
-            examples: wordObj.examples            
+            def: wordObj.def,
+            syns: wordObj.syns,
+            ants: wordObj.ants,
+            fl: wordObj.fl          
 
         })
     }
