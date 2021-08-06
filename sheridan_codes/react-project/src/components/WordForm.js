@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import Thesaurus from './Thesaurus'
 
+
 class WordForm extends Component {
-    constructor(){
-        super()
+    
+    constructor(props){
+        super(props)
         this.state = {
-            id: '',
-            syns: '',
-            ants: '',
-            fl: ''
-        }
+            words: this.props.word
+         }
     }
 
     handleChange = (e) => {
@@ -20,54 +19,48 @@ class WordForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:3001/thesaurus`, {
+        fetch(`http://localhost:3000/word`, {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json',
+                'Content-type': 'applicationCache/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                id: this.state.id,
-                syns: this.state.syns,
-                ants: this.state.ants,
-                fl: this.state.fl
+                word: this.state.word,
+                definition: this.state.definition,
+                partOfSpeech: this.state.partOfSpeech,
+                synonyms: this.state.synonyms
             })
         }).then(res => res.json())
-        .then(word => this.props.addWord(word))
+        .then(word => this.props.addNewWord(word))
     }
 
-    changeWord = (wordObj) => {
+    changeWord = (data) => {
         this.setState({
-            id: wordObj.id,
-            syns: wordObj.syns,
-            ants: wordObj.ants,
-            fl: wordObj.fl
+            words: data
         })
     }
 
     render(){
         return(
             <div>
-                <Thesaurus changeWord={this.changeWord}/>
-                <form onSubmit={this.handleSubmit}>
+                <Thesaurus changeWord={this.state.changeWord}/>
+                <form onSubmit={this.state.handleSubmit}>
                     <label>Word</label><br/>
-                    <input type="text" name="word" onChange={this.handleChange}/><br/>
-                    {/* <label>Synonyms</label><br/>
-                    <textarea type="text" name="synonyms" onChange={this.handleChange}/><br/>
-                    <label>Examples</label><br/>
-                    <textarea type="text" name="examples" onChange={this.handleChange}/><br/> */}
+                    <input type="text" name="word" onChange={this.state.handleChange}/><br/>
                     <input type="submit"/>
                 </form>
             </div>
         )
     }
+    // link wordform to thesaurus
+    // put event listener on text box so when typed - when submitted will fetch
+    // data to be placed on browser
+    // persist json - fetch request to json - DONE!
     
-    changeWord = (wordObj) => {
+    changeWord = (data) => {
         this.setState({
-            def: wordObj.def,
-            syns: wordObj.syns,
-            ants: wordObj.ants,
-            fl: wordObj.fl          
+            words: data    
 
         })
     }

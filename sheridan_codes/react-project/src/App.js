@@ -4,27 +4,33 @@ import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Words from './containers/Words'
 import WordForm from './components/WordForm'
-import React, { Component } from 'react'
+import { Component } from 'react'
 
-class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-        words: []
-    }
-}
 
-componentDidMount(){
-    fetch(`http://localhost:3001/thesaurus`)
-    .then(res => res.json())
-    .then(words => this.setState({ words }))
-}
+  class App extends Component {
+    
+    constructor(){
+      super()
+      this.state = {
+          words: []
+      }
+  }
 
-addWord = (word) => {
-  this.setState({
-    words: [...this.state.words, word]
-  })
-}
+  componentDidMount(){
+      fetch(`http://localhost:3000/word`)
+      .then(res => res.json())
+      .then(data => {
+          this.setState({
+              words: data
+      })
+      })
+  }
+
+  addNewWord = (word) => {
+    this.setState({
+      words: [...this.state.words, word]
+    })
+  }
 
   render(){
     return(
@@ -35,7 +41,7 @@ addWord = (word) => {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/words' render={() => <Words words={this.state.stories}/>}/>
-        <Route exact path='/words/new' render={() => <WordForm addWord={this.addWord}/>}/>
+        <Route exact path='/words/new' render={() => <WordForm addNewWord={this.addNewWord}/>}/>
       </Switch>
 
 
@@ -43,8 +49,7 @@ addWord = (word) => {
     </Router>
   );
   }
-}
-
+  }
 export default App;
 
 // Use the create-react-app generator to start your project.
