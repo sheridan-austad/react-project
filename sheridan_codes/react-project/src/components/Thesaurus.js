@@ -26,8 +26,15 @@ class Thesaurus extends Component {
             }
         })
             .then(res => res.json())
+            this.setState((prevState) => {
+    return {
+        ...prevState,
+        word: prevState.word
+    }
+})
             // .then(data => {data})
     }
+
 // set state for after fetch
 // check data before setting state
 

@@ -11,10 +11,14 @@ class Word extends Component {
         
         
     render(){
-        return (
-            <div>
-                {this.props.word.word}
-            </div>
+       return (
+    <div className="row">
+      {this.props.word.word === 'truthy' ? (
+       <div className="alert alert-danger" role="alert">
+         Something went wrong
+       </div>
+      ) : null}
+    </div>
         )
     }
 }

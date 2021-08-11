@@ -19,6 +19,7 @@ class WordForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        // not reading the preventdefault
         fetch(`http://localhost:3000/word`, {
             method: 'POST',
             headers: {
@@ -32,7 +33,7 @@ class WordForm extends Component {
                 synonyms: this.state.synonyms
             })
         }).then(res => res.json())
-        .then(word => this.props.addNewWord(word))
+        .then(word => this.state.addNewWord(word))
     }
 
     changeWord = (data) => {
