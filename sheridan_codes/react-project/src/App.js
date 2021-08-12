@@ -26,10 +26,24 @@ import { Component } from 'react'
       })
   }
 
-  addNewWord = (word) => {
+  addNewWord = (words) => {
     this.setState({
-      words: [...this.state.words, word]
+      words: [...this.state.words, words]
     })
+    fetch(`http://localhost:3000/word`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'applicationCache/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                words: this.state.words,
+                definition: this.state.definition,
+                partOfSpeech: this.state.partOfSpeech,
+                synonyms: this.state.synonyms
+            })
+        }).then(res => res.json())
+        .then(word => this.addNewWord(word))
   }
 
   render(){
@@ -40,7 +54,7 @@ import { Component } from 'react'
       <NavBar/>
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route exact path='/words' render={() => <Words words={this.state.stories}/>}/>
+        <Route exact path='/words' render={() => <Words words={this.state.words}/>}/>
         <Route exact path='/words/new' render={() => <WordForm addNewWord={this.addNewWord}/>}/>
       </Switch>
 

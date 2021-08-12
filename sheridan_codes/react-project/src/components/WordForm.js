@@ -4,13 +4,22 @@ import Thesaurus from './Thesaurus'
 
 class WordForm extends Component {
     
+    // state= {
+    //     words: '',
+    //     definition: '',
+    //     partOfSpeech: '',
+    //     synonyms: ''
+    // }
     constructor(props){
         super(props)
         this.state = {
-            words: this.props.word
+            words: '',
+            definition: '',
+            partOfSpeech: '',
+            synonyms: ''
          }
     }
-
+// go over how to write a form
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -19,21 +28,9 @@ class WordForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        this.props.addNewWord(this.state)
         // not reading the preventdefault
-        fetch(`http://localhost:3000/word`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'applicationCache/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                word: this.state.word,
-                definition: this.state.definition,
-                partOfSpeech: this.state.partOfSpeech,
-                synonyms: this.state.synonyms
-            })
-        }).then(res => res.json())
-        .then(word => this.state.addNewWord(word))
+        
     }
 
     changeWord = (data) => {
@@ -45,10 +42,10 @@ class WordForm extends Component {
     render(){
         return(
             <div>
-                <Thesaurus changeWord={this.state.changeWord}/>
-                <form onSubmit={this.state.handleSubmit}>
+                <Thesaurus changeWord={this.changeWord}/>
+                <form onSubmit={this.handleSubmit}>
                     <label>Word</label><br/>
-                    <input type="text" name="word" onChange={this.state.handleChange}/><br/>
+                    <input type="text" name="word" value={this.state.word} onChange={this.handleChange}/><br/>
                     <input type="submit"/>
                 </form>
             </div>

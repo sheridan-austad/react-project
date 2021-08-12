@@ -13,12 +13,12 @@ class Thesaurus extends Component {
     }
 
     componentDidMount() {
-        this.fetchWord("hello")
+        this.fetchWord()
     }
 // instead of word - this.props.word
 // write down parents and children - like a tree
     fetchWord = () => {
-        fetch(`https://wordsapiv1.p.rapidapi.com/words/${this.props.word}`, {
+        fetch(`https://wordsapiv1.p.rapidapi.com/words/?random=true`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "6d66cea463msh35492d29c84f385p1a1ea9jsn8568cdf82ecf",
@@ -26,14 +26,19 @@ class Thesaurus extends Component {
             }
         })
             .then(res => res.json())
-            this.setState((prevState) => {
-    return {
-        ...prevState,
-        word: prevState.word
-    }
-})
-            // .then(data => {data})
-    }
+            .then(data => {
+               
+                this.setState({
+                    word: data.word,
+                    description: data.results ? data.results[0].definition : "",
+                    partOfSpeech: data.results ? data.results[0].partOfSpeech : "",
+                    synonyms: data.results ? data.results[0].synonyms[0] : ""
+                })
+            })
+
+        
+}
+    
 
 // set state for after fetch
 // check data before setting state
