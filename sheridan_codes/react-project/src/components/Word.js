@@ -4,20 +4,16 @@ import React, { Component } from 'react'
 class Word extends Component {
     constructor() {
         super()
-        this.setState(prevState => ({
-            check: !prevState.check
-          }));
+        this.state({
+          
+        })
         }
-        
+        // ternary expression?
         
     render(){
        return (
     <div className="row">
-      {this.props.word.word === 'truthy' ? (
-       <div className="alert alert-danger" role="alert">
-         Something went wrong
-       </div>
-      ) : null}
+      {/* ternary expression? */}
     </div>
         )
     }

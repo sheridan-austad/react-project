@@ -15,6 +15,11 @@ import { Component } from 'react'
           words: []
       }
   }
+  handleChange = (e) => {
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
 
   componentDidMount(){
       fetch(`http://localhost:3000/word`)
@@ -30,32 +35,38 @@ import { Component } from 'react'
     this.setState({
       words: [...this.state.words, words]
     })
-    fetch(`http://localhost:3000/word`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'applicationCache/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                words: this.state.words,
-                definition: this.state.definition,
-                partOfSpeech: this.state.partOfSpeech,
-                synonyms: this.state.synonyms
-            })
-        }).then(res => res.json())
-        .then(word => this.addNewWord(word))
+    
+    // fetch(`http://localhost:3000/word`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'applicationCache/json',
+    //             'Accept': 'application/json'
+    //         },
+  
+    //     }).then(res => res.json())
+    //     .then(word => this.addNewWord(word))
+  }
+
+  changeWord = (word) => {
+    this.setState({
+      words: [...this.state.words, word] 
+    })
   }
 
   render(){
     return(
       <Router>
     <div className="App">
+      {/* <form
+        handleChange={this.state}
+        addNewWord={this.addNewWord}
+        /> */}
       {/* allows the navbar to be available everywhere */}
       <NavBar/>
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/words' render={() => <Words words={this.state.words}/>}/>
-        <Route exact path='/words/new' render={() => <WordForm addNewWord={this.addNewWord}/>}/>
+        <Route exact path='/words/new' render={() => <WordForm changeWord={this.state}/>}/>
       </Switch>
 
 
