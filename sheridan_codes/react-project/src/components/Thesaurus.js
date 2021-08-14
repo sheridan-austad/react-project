@@ -40,11 +40,30 @@ class Thesaurus extends Component {
 
 render(){
     return (
-        <div><br />
+        <div>
+            {this.props.changedWord ? 
+                <div>
+                    <br />
+            <h3>Word: {this.props.changedWord.word}</h3>
+            <h3>Definition: {this.props.changedWord.results[0].definition}</h3>
+            <h3>Parts of Speech: {this.props.changedWord.results[0].partOfSpeech}</h3>
+            <h3>Synonyms: {this.props.changedWord.results[0].synonyms ? this.props.changedWord.results[0].synonyms[0] : ""}</h3><br />
+                </div>
+            : 
+            <div>
+                <br />
             <h3>Word: {this.state.word}</h3>
             <h3>Definition: {this.state.definition}</h3>
             <h3>Parts of Speech: {this.state.partOfSpeech}</h3>
             <h3>Synonyms: {this.state.synonyms}</h3><br />
+
+            </div>}
+
+            {/* <br />
+            <h3>Word: {this.state.word}</h3>
+            <h3>Definition: {this.state.definition}</h3>
+            <h3>Parts of Speech: {this.state.partOfSpeech}</h3>
+            <h3>Synonyms: {this.state.synonyms}</h3><br /> */}
             <button onClick={this.fetchWord}>Try a different word!</button>
         </div>
     )

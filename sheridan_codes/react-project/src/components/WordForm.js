@@ -4,47 +4,31 @@ import Thesaurus from './Thesaurus'
 
 class WordForm extends Component {
     state = {
-        word: ''
+        word: '',
+        changedWord: null
     }
     handleWordChange = (e) => {
         this.setState({
             word: e.target.value
         })
     }
-    
-    // listOfSubmissions = () => {
-    //     return this.state.word.map(data => {
-    //       return <div><span>{data.word}</span> </div>
-    //     })
-    // }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // let formData = { word: this.state.word }
-        // let dataArray = this.state.word.concat(formData)
-        // this.setState({word: dataArray})
-
-        fetch(`http://localhost:3000/word`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'applicationCache/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                word: this.state.word,
-                definition: this.state.definition,
-                partOfSpeech: this.state.partOfSpeech,
-                synonyms: this.state.synonyms
-            })
-        }).then(res => res.json())
-        .then(word => this.addNewWord(word))
+        fetch(`https://wordsapiv1.p.rapidapi.com/words/${this.state.word}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "6d66cea463msh35492d29c84f385p1a1ea9jsn8568cdf82ecf",
+            "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+        }
+    })
+    .then(res => res.json())
+    .then(json => 
+      {this.setState({
+        changedWord: json
+      })})
     }
-    
-    // handleChange = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
+
     addNewWord = (data) => {
             this.setState({
                 word: data
@@ -53,14 +37,13 @@ class WordForm extends Component {
     render(){
         return(
             <div>
-                <Thesaurus addNewWord={this.addNewWord}/>
+                <Thesaurus addNewWord={this.addNewWord} changedWord={this.state.changedWord}/>
                 <form onSubmit={event => this.handleSubmit(event)}><br/>
                     <label>New Word:</label><br/>
-                    <input type="text" name="word" onChange={event =>this.handleWordChange(event)}
+                    <input type="text" name="word" onChange={event => this.handleWordChange(event)}
                     value={this.state.words}/><br/>
                     <input type="submit" value="Submit"/>
                 </form>
-                {/* {this.listOfSubmissions(word)} */}
             </div>
         )
     }

@@ -15,11 +15,12 @@ import { Component } from 'react'
           words: []
       }
   }
-  handleChange = (e) => {
-    this.setState({
-        [e.target.name]: e.target.value
-    })
-}
+//   handleWordChange = (e) => {
+//     this.setState({
+//         [e.target.name]: e.target.value
+//     })
+// }
+ 
 
   componentDidMount(){
       fetch(`http://localhost:3000/word`)
@@ -57,10 +58,10 @@ import { Component } from 'react'
     return(
       <Router>
     <div className="App">
-      {/* <form
-        handleChange={this.state}
-        addNewWord={this.addNewWord}
-        /> */}
+      <form
+        handleWordChange={this.props.state}
+        addNewWord={this.props.addNewWord}
+        />
       {/* allows the navbar to be available everywhere */}
       <NavBar/>
       <Switch>
