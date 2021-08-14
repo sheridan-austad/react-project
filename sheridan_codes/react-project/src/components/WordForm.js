@@ -3,9 +3,27 @@ import Thesaurus from './Thesaurus'
 
 
 class WordForm extends Component {
+    state = {
+        word: ''
+    }
+    handleWordChange = (e) => {
+        this.setState({
+            word: e.target.value
+        })
+    }
     
+    // listOfSubmissions = () => {
+    //     return this.state.word.map(data => {
+    //       return <div><span>{data.word}</span> </div>
+    //     })
+    // }
+
     handleSubmit = (e) => {
         e.preventDefault()
+        // let formData = { word: this.state.word }
+        // let dataArray = this.state.word.concat(formData)
+        // this.setState({word: dataArray})
+
         fetch(`http://localhost:3000/word`, {
             method: 'POST',
             headers: {
@@ -29,7 +47,7 @@ class WordForm extends Component {
     // }
     addNewWord = (data) => {
             this.setState({
-                words: data
+                word: data
             })
         }
     render(){
@@ -38,10 +56,11 @@ class WordForm extends Component {
                 <Thesaurus addNewWord={this.addNewWord}/>
                 <form onSubmit={event => this.handleSubmit(event)}><br/>
                     <label>New Word:</label><br/>
-                    <input type="text" name="word" onChange={event =>this.props.handleChange(event)}
-                    value={this.props.words.word}/><br/>
+                    <input type="text" name="word" onChange={event =>this.handleWordChange(event)}
+                    value={this.state.words}/><br/>
                     <input type="submit" value="Submit"/>
                 </form>
+                {/* {this.listOfSubmissions(word)} */}
             </div>
         )
     }

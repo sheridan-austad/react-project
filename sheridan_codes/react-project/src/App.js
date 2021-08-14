@@ -31,9 +31,9 @@ import { Component } from 'react'
       })
   }
 
-  addNewWord = (words) => {
+  addNewWord = (word) => {
     this.setState({
-      words: [...this.state.words, words]
+      words: [...this.state.words, word]
     })
     
     // fetch(`http://localhost:3000/word`, {
@@ -47,11 +47,11 @@ import { Component } from 'react'
     //     .then(word => this.addNewWord(word))
   }
 
-  changeWord = (word) => {
-    this.setState({
-      words: [...this.state.words, word] 
-    })
-  }
+  // changeWord = (word) => {
+  //   this.setState({
+  //     words: [...this.state.words, word] 
+  //   })
+  // }
 
   render(){
     return(
@@ -66,7 +66,7 @@ import { Component } from 'react'
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/words' render={() => <Words words={this.state.words}/>}/>
-        <Route exact path='/words/new' render={() => <WordForm changeWord={this.state}/>}/>
+        <Route exact path='/words/new' render={() => <WordForm addNewWord={this.state.words}/>}/>
       </Switch>
 
 

@@ -2,18 +2,11 @@ import React, { Component } from 'react'
 
 
 class Word extends Component {
-    constructor() {
-        super()
-        this.state({
-          
-        })
-        }
-        // ternary expression?
-        
+
     render(){
        return (
-    <div className="row">
-      {/* ternary expression? */}
+    <div>
+      {/* ternary expression for only if there is a word? */}
     </div>
         )
     }
