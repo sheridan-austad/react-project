@@ -29,15 +29,16 @@ class WordForm extends Component {
       })})
     }
 
-    addNewWord = (data) => {
+    handleResetWord = () => {
             this.setState({
-                word: data
+                changedWord: null
             })
         }
+
     render(){
         return(
             <div>
-                <Thesaurus addNewWord={this.addNewWord} changedWord={this.state.changedWord}/>
+                <Thesaurus handleResetWord={this.handleResetWord} changedWord={this.state.changedWord}/>
                 <form onSubmit={event => this.handleSubmit(event)}><br/>
                     <label>New Word:</label><br/>
                     <input type="text" name="word" onChange={event => this.handleWordChange(event)}

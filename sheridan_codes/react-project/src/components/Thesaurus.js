@@ -17,6 +17,7 @@ class Thesaurus extends Component {
     }
 
     fetchWord = () => {
+        this.props.handleResetWord()
         fetch(`https://wordsapiv1.p.rapidapi.com/words/?random=true`, {
             "method": "GET",
             "headers": {
@@ -58,12 +59,6 @@ render(){
             <h3>Synonyms: {this.state.synonyms}</h3><br />
 
             </div>}
-
-            {/* <br />
-            <h3>Word: {this.state.word}</h3>
-            <h3>Definition: {this.state.definition}</h3>
-            <h3>Parts of Speech: {this.state.partOfSpeech}</h3>
-            <h3>Synonyms: {this.state.synonyms}</h3><br /> */}
             <button onClick={this.fetchWord}>Try a different word!</button>
         </div>
     )
