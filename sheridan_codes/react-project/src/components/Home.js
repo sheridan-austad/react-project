@@ -11,5 +11,6 @@ class Home extends Component {
         )
     }
 }
+// spitting words on the page
 
 export default Home

@@ -10,6 +10,7 @@ const link = {
     textDecoration: 'none',
     color: 'white'
 }
+// creating the navbar
 
 class NavBar extends Component {
     render() {
@@ -47,6 +48,7 @@ class NavBar extends Component {
                 </NavLink>
             </div>
         )
+        // putting in the links
     }
 }
 

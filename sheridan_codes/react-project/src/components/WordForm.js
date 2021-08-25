@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-// import Thesaurus from './Thesaurus'
-
 
 class WordForm extends Component {
     state = {

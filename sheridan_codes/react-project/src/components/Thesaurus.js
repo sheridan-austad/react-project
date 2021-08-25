@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import WordDisplay from './WordDisplay'
 
 class Thesaurus extends Component {
 
@@ -6,19 +7,13 @@ class Thesaurus extends Component {
         return (
             <div>
                 {this.props.word ?
-                    <>
-                        <br />
-                        <h3>Word: {this.props.word.word}</h3>
-                        <h3>Definition: {this.props.word.results ? this.props.word.results[0].definition : ""}</h3>
-                        <h3>Parts of Speech: {this.props.word.results ? this.props.word.results[0].partOfSpeech : ""}</h3>
-                        <h3>Synonyms: {this.props.word.results && this.props.word.results[0].synonyms ? this.props.word.results[0].synonyms[0] : ""}</h3>
-                    </>
+                    <WordDisplay word={this.props.word}/>
                     :
                     null
-
                 }
 
-                <button onClick={this.props.fetchRandomWord}>Try a different word!</button>
+                <button onClick={this.props.fetchRandomWord}>Try a different word!</button><br/>
+                <button onClick={this.props.saveWord}>Save Word!</button>
             </div>
         )
     }

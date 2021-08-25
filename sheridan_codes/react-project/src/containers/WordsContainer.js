@@ -6,11 +6,12 @@ class WordsContainer extends Component {
     state = {
         word: null
     }
-
-
+    // setting state to word - setting that to null
+   
     componentDidMount() {
         this.fetchRandomWord()
     }
+    // compnent life cycle - user seeing something and not just a blank page
 
     fetchRandomWord = () => {
         // this.props.handleResetWord()
@@ -29,7 +30,21 @@ class WordsContainer extends Component {
                 })
             })
     }
+    // fetching the API - 
 
+    saveWord = () => {
+        fetch(`http://localhost:3000/word`, {
+            "method": "POST",
+            "headers": {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(
+                this.state.word
+              )
+            })
+    }
+    
     fetchFormWord = (word) => {
         // this.props.handleResetWord()
         fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
@@ -49,7 +64,7 @@ class WordsContainer extends Component {
     render() {
         return (
             <div>
-                <Thesaurus word={this.state.word} fetchRandomWord={this.fetchRandomWord}/>
+                <Thesaurus word={this.state.word} fetchRandomWord={this.fetchRandomWord} saveWord={this.saveWord}/>
                 <WordForm fetchFormWord={this.fetchFormWord}/>
             </div>
         )
