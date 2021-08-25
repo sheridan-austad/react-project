@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
 import NavBar from './components/NavBar'
-import Words from './containers/Words'
-import WordForm from './components/WordForm'
+import SavedWords from './containers/SavedWords'
+import WordsContainer from './containers/WordsContainer'
 import { Component } from 'react'
 
 
@@ -16,15 +16,15 @@ import { Component } from 'react'
       }
   }
 
-  componentDidMount(){
-      fetch(`http://localhost:3000/word`)
-      .then(res => res.json())
-      .then(data => {
-          this.setState({
-              words: data
-      })
-      })
-  }
+  // componentDidMount(){
+  //     fetch(`http://localhost:3000/word`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //         this.setState({
+  //             words: data
+  //     })
+  //     })
+  // }
 
   addNewWord = (word) => {
     this.setState({
@@ -44,8 +44,8 @@ import { Component } from 'react'
       <NavBar/>
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route exact path='/words' render={() => <Words words={this.state.words}/>}/>
-        <Route exact path='/words/new' render={() => <WordForm addNewWord={this.state.words}/>}/>
+        <Route exact path='/SavedWords' render={() => <SavedWords words={this.state.words}/>}/>
+        <Route exact path='/Words' render={() => <WordsContainer/>}/>
       </Switch>
 
 

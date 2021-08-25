@@ -35,6 +35,16 @@ class NavBar extends Component {
                 >
                     Words
                 </NavLink>
+                <NavLink
+                    to="/SavedWords"
+                    exact
+                    style={link}
+                    activeStyle={{
+                        background: 'lightgrey'
+                    }}
+                >
+                    SavedWords
+                </NavLink>
             </div>
         )
     }
